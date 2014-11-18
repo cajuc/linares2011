@@ -14,7 +14,7 @@ class CreateFichasTable extends Migration {
 	{
 		Schema::create('fichas', function($table){
 			$table->increments('id');
-			$table->integer('jugador_id')->unsigned();
+			$table->integer('integrante_id')->unsigned();
 			$table->tinyInteger('peso')->nullable();
 			$table->string('posicion', 30);
 			$table->date('fecha_nacimiento');
