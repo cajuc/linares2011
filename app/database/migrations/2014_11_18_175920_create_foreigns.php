@@ -15,7 +15,6 @@ class CreateForeigns extends Migration {
 		Schema::table('equipos', function($table){
 			$table->foreign('categoria_id')->references('id')->on('categorias');
 			$table->foreign('liga_id')->references('id')->on('ligas');
-			$table->foreign('jornada_id')->references('id')->on('jornadas');
 		});
 
 		Schema::table('estadisticas', function($table){
@@ -46,7 +45,7 @@ class CreateForeigns extends Migration {
 		Schema::table('jornadas', function($table){
 			$table->foreign('equipo_local')->references('id')->on('equipos');
 			$table->foreign('equipo_visitante')->references('id')->on('equipos');
-			$table->foreign('temporada_id')->references('id')->on('temporadas');
+			$table->foreign('liga_id')->references('id')->on('ligas')->onDelete('cascade')->onUpdate('cascade');
 		});
 	}
 
@@ -61,7 +60,6 @@ class CreateForeigns extends Migration {
 		Schema::table('equipos', function($table){
 			$table->dropForeign('equipos_categoria_id_foreign');
 			$table->dropForeign('equipos_liga_id_foreign');
-			$table->dropForeign('equipos_jornada_id_foreign');
 		});
 
 		// Borrar foreigns de la tabla estadisticas
@@ -99,7 +97,7 @@ class CreateForeigns extends Migration {
 		Schema::table('jornadas', function($table){
 			$table->dropForeign('jornadas_equipo_local_foreign');
 			$table->dropForeign('jornadas_equipo_visitante_foreign');
-			$table->dropForeign('jornadas_temporada_id_foreign');
+			$table->dropForeign('jornadas_liga_id_foreign');
 		});
 	}
 

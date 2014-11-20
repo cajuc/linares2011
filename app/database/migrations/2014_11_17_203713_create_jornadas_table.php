@@ -17,10 +17,7 @@ class CreateJornadasTable extends Migration {
 			$table->integer('n_jornada')->unsigned();
 			$table->integer('equipo_local')->unsigned();
 			$table->integer('equipo_visitante')->unsigned();
-			$table->tinyInteger('goles_local')->unsigned();
-			$table->tinyInteger('goles_visitante')->unsigned();
-			$table->integer('temporada_id')->unsigned();
-			$table->date('fecha_disputada');
+			$table->integer('liga_id')->unsigned();
 			$table->timestamps();
 		});
 	}
