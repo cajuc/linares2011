@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLigasTable extends Migration {
+class CreateLigaTemporadaTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateLigasTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('ligas', function($table){
+		Schema::create('liga_temporada', function($table){
 			$table->increments('id');
-			$table->string('nombre', 45);
-			//$table->integer('temporada_id')->unsigned();
+			$table->integer('liga_id')->unsigned();
+			$table->integer('temporada_id')->unsigned();
 			$table->timestamps();
 		});
 	}
@@ -27,7 +27,7 @@ class CreateLigasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('ligas');
+		Schema::drop('liga_temporada');
 	}
 
 }
