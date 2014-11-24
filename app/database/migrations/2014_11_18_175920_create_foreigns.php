@@ -38,13 +38,7 @@ class CreateForeigns extends Migration {
 			$table->foreign('temporada_id')->references('id')->on('temporadas');
 		});
 
-		// Schema::table('ligas', function($table){
-		// 	$table->foreign('temporada_id')->references('id')->on('temporadas');
-		// });
-
 		Schema::table('jornadas', function($table){
-			$table->foreign('equipo_local')->references('id')->on('equipos');
-			$table->foreign('equipo_visitante')->references('id')->on('equipos');
 			$table->foreign('liga_id')->references('id')->on('ligas')->onDelete('cascade')->onUpdate('cascade');
 		});
 	}
@@ -88,15 +82,8 @@ class CreateForeigns extends Migration {
 			$table->dropForeign('trofeos_temporada_id_foreign');
 		});
 
-		// Borrar foreigns de la tabla ligas
-		// Schema::table('ligas', function($table){
-		// 	$table->dropForeign('ligas_temporada_id_foreign');
-		// });
-
 		// Borrar foreigns de la tabla jornadas
 		Schema::table('jornadas', function($table){
-			$table->dropForeign('jornadas_equipo_local_foreign');
-			$table->dropForeign('jornadas_equipo_visitante_foreign');
 			$table->dropForeign('jornadas_liga_id_foreign');
 		});
 	}

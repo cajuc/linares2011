@@ -15,8 +15,6 @@ class CreateJornadasTable extends Migration {
 		Schema::create('jornadas', function($table){
 			$table->increments('id');
 			$table->integer('n_jornada')->unsigned();
-			$table->integer('equipo_local')->unsigned();
-			$table->integer('equipo_visitante')->unsigned();
 			$table->integer('liga_id')->unsigned();
 			$table->timestamps();
 		});

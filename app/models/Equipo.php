@@ -7,12 +7,12 @@ class Equipo extends Eloquent {
 		return $this->hasMany("Estadistica");
 	}
 
-	public function jornadas_local(){
-		return $this->hasMany("Jornada", "equipo_local_id");
+	public function equiposJornadasLocal(){
+		return $this->hasMany("EquipoJornada", "equipo_local");
 	}
 
-	public function jornadas_visitante(){
-		ruturn $this->hasMany("Jornada", "equipo_visitante_id");
+	public function equiposJornadasVisitante(){
+		return $this->hasMany("EquipoJornada", "equipo_visitante");
 	}
 
 	public function integrantes(){
