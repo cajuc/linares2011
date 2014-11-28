@@ -16,18 +16,5 @@
 // 	return View::make('hello');
 // });
 
-Route::get('/', function()
-{
-	$equipos = Equipo::find(1)->jornadasLocal;
-	$lista = '<ul>';
-
-	foreach($equipos as $equipo){
-		$lista .= '<li>';
-		$lista .= '<h2>Equipo: ' . $equipo->equipoLocal['nombre'] . '</h2>';
-		$lista .= '<p>Numero de jornada: ' . $equipo['n_jornada'] . '</p>';
-		$lista .= '</li>';
-	}
-	$lista .= '</ul>';
-	return $lista;
-	// return var_dump($equipos);
-});
+// Controlador para manejar la URI 'admin'
+Route::controller('admin', 'AdminController');
