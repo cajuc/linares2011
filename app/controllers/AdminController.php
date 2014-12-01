@@ -19,9 +19,10 @@ class AdminController extends BaseController{
 		);
 
 		if (Auth::attempt($credentials)) {
-			return 'Logged in';
+			return Redirect::to('inicio');
 		}
 
+		return Redirect::back()->with('invalid', 'El usuario y/o contraseña son erroneos');
 	}
 
 	public function getCrear(){

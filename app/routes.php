@@ -18,3 +18,6 @@
 
 // Controlador para manejar la URI 'admin'
 Route::controller('admin', 'AdminController');
+
+// Controlador para manejar la URI 'inicio'
+Route::controller('inicio', 'InicioController');

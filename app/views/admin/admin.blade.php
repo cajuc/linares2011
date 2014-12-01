@@ -8,7 +8,7 @@
 		{{ HTML::style("assets/css/font-awesome.min.css") }}
 		{{ HTML::style("assets/css/style-admin.css") }}
 		{{ HTML::style("assets/css/normalize.css") }}
-		<link href='http://fonts.googleapis.com/css?family=Josefin+Sans:600' rel='stylesheet' type='text/css'>
+		{{ HTML::style('http://fonts.googleapis.com/css?family=Josefin+Sans:600') }}
 	</head>
 	<body>
 		<div class="contenedor-principal">
@@ -26,20 +26,24 @@
 
 			<div class="contenedor-login">
 				<section>
-					
-					
 					<div class="login-header">
 						<span>Login</span>
 					</div>
 				</section>
 				<section>
 					<div class="login-body">
+
+						@if (Session::has('invalid'))
+							<div class="alert alert-danger"> {{ Session::get('invalid') }} </div>
+						@endif
+
 						{{ Form::open(array('url' => 'admin', 'role' => 'form')) }}
 							<div class="input-group">
 								<span class="input-group-addon">
 									<i class="fa fa-user fa-lg"></i>
 								</span>
-								<input type="text" class="form-control" name="username" placeholder="Usuario" autofocus>
+								{{ Form::text('username', '', array('placeholder' => 'Usuario', 'class' => 'form-control', 'autofocus')) }}
+								<!-- <input type="text" class="form-control" name="username" placeholder="Usuario" autofocus> -->
 							</div>
 						
 							{{ $errors->first('username', '<div class="alert-danger">:message</div>') }}
@@ -49,7 +53,7 @@
 								<span class="input-group-addon">
 									<i class="fa fa-lock fa-lg"></i>
 								</span>
-								<input type="text" class="form-control" name="password" placeholder="Password">
+								<input type="password" class="form-control" name="password" placeholder="Password">
 							</div>
 
 							{{ $errors->first('password', '<div class="alert-danger">:message</div>') }}
