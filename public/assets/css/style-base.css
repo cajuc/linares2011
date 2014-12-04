@@ -1,6 +1,7 @@
 body{
 	padding-top: 20px;
 	padding-bottom: 20px;
+	font-family: 'Lato normal', sans-serif;
 }
 
 .logo-img{
@@ -9,19 +10,50 @@ body{
 }
 
 .logo-text{
-	font-size: 36px;
-	font-family: 'Josefin Sans', sans-serif;
+	font-size: 40px;
+	font-family: Tangerine_Bold;
 	color: #246FD8;
 }
 
 .header-social{
-	padding-top: 15px;
+	padding-top: 10px;
 }
 
 .header-social a{
-	margin-left: 10px;
+	margin-left: 20px;
 }
 
 .icon-navbar{
 	width: 32px;
+}
+
+.footer-content{
+	border: 1px solid grey;
+	border-radius: 10px;
+	background-color: #E2E2E2;
+	color: #246FD8;
+}
+
+.align-copyright{
+	margin-top: 30px;
+}
+
+.header-clasification{
+	font-size: 26px;
+	color: #246FD8;
+}
+
+.table-spacing tr, .table-spacing td{
+	padding-bottom: 1px!important;
+	padding-top: 1px!important;
+}
+
+@media (max-width: 768px){
+	.align-copyright{
+		margin-top: 10px;
+	}
+
+	.header-social a{
+	margin-right: 10px;
+}
 }

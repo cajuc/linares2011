@@ -19,19 +19,20 @@ class AdminController extends BaseController{
 		);
 
 		if (Auth::attempt($credentials)) {
-			return Redirect::to('inicio');
+			return Redirect::to('/');
 		}
 
 		return Redirect::back()->with('invalid', 'El usuario y/o contraseña son erroneos');
 	}
 
-	public function getCrear(){
-		User::create(array(
-			'username' => 'carlos',
-			'password' => Hash::make('carlos'),
-			'admin' => 1
-		));
+	// Función para crear un usuario
+	// public function getCrear(){
+	// 	User::create(array(
+	// 		'username' => 'carlos',
+	// 		'password' => Hash::make('carlos'),
+	// 		'admin' => 1
+	// 	));
 
-		return 'User created';
-	}
+	// 	return 'User created';
+	// }
 }

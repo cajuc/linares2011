@@ -1,0 +1,11 @@
+/* Fuente Tangerine Bold */
+@font-face{
+	font-family: Tangerine_Bold;
+	src: url('../fonts/Tangerine/Tangerine_Bold.ttf');
+}
+
+/* Fuente Lato Normal*/
+@font-face{
+	font-family: "Lato normal";
+	src: url('../fonts/Lato/Lato-Regular.ttf');
+}

@@ -14,6 +14,7 @@ class CreateEquiposTable extends Migration {
 	{
 		Schema::create('equipos', function($table){
 			$table->increments('id');
+			$table->boolean('belongs');
 			$table->integer('categoria_id')->unsigned();
 			$table->string('nombre', 45);
 			$table->integer('liga_id')->unsigned()->nullable();

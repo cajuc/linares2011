@@ -15,7 +15,6 @@ class CreateLigasTable extends Migration {
 		Schema::create('ligas', function($table){
 			$table->increments('id');
 			$table->string('nombre', 45);
-			//$table->integer('temporada_id')->unsigned();
 			$table->timestamps();
 		});
 	}

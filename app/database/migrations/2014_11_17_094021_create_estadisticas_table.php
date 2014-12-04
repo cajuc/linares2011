@@ -24,7 +24,6 @@ class CreateEstadisticasTable extends Migration {
 			$table->tinyInteger('goles_en_contra');
 			$table->tinyInteger('tarjetas_amarillas')->nullable();
 			$table->tinyInteger('tarjetas_rojas')->nullable();
-			//$table->primary(array('id', 'equipo_id'));
 			$table->timestamps();
 		});
 		

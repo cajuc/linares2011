@@ -3,8 +3,8 @@
 class Equipo extends Eloquent {
 	protected $table = "equipos";
 
-	public function estadisticas(){
-		return $this->hasMany("Estadistica");
+	public function estadistica(){
+		return $this->hasOne("Estadistica");
 	}
 
 	public function equiposJornadasLocal(){
