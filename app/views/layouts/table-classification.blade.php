@@ -1,9 +1,9 @@
 <!-- Creo la variable que almacena los datos de la liga requerida -->
-{{--*/ $liga = ObtenerRecursos::obtenerDatosClasificacion($liga_id); /*--}}
+{{--*/ $liga = ObtenerRecursos::obtenerDatosClasificacion($categoria); /*--}}
 
 <span class="header-clasification">{{ $liga[0]->liga }}</span>
 
-<table class="table table-condensed table-spacing">
+<table class="table table-condensed table-spacing" id="clasificacion">
 	<tr>
 		<th></th>
 		<th>Equipo</th>

@@ -78,4 +78,9 @@ App::down(function()
 |
 */
 
+// Controla las respuestas de peticiones a urls que no están definidas
+App::missing(function(){
+	return Redirect::to('/');
+});
+
 require app_path().'/filters.php';

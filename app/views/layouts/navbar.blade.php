@@ -40,6 +40,14 @@
 				<li><a href="#">Historia</a></li>
 				<li><a href="#">Trofeos</a></li>
 			</ul>
+
+			@if (Auth::check() && Auth::user()->admin)
+				<ul class="nav navbar-nav navbar-right">
+					<li>
+						<a href="{{ URL::to('/settings') }}">Administrar</a>
+					</li>
+				</ul>
+			@endif
 		</div>
 	</div>
 </nav>

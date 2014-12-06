@@ -15,7 +15,7 @@
 @section('content')
 <section class="container">
 	<div class="row">
-		<div id="main-slider" class="carousel slide col-md-8 col-sm-7 content-slider" data-ride="carousel">
+		<div id="main-slider" class="carousel slide col-md-8 content-slider" data-ride="carousel">
 			<!-- Indicadores -->
 			<ol class="carousel-indicators">
 				<li data-target="#main-slider" data-slide-to="0" class="active"></li>
@@ -68,8 +68,8 @@
 			</a>
 		</div>
 
-		<div class="col-md-4 col-sm-5 content-clasificacion">
-			@include('layouts.table-clasification', array('liga_id' => 1))
+		<div class="col-md-4 content-clasificacion">
+			@include('layouts.table-classification', array('categoria' => 'senior'))
 		</div>
 	</div>
 </section>

@@ -22,12 +22,21 @@
 		<header>
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6 col-md-8">
+					<div class="col-sm-6 col-md-5">
 						{{ HTML::image('assets/images/escudo-linares2011.png', 'escudo linares 2011', ['class' => 'logo-img hidden-xs']) }}
 						<span class="logo-text">Linares C.F</span>
 					</div>
-					
-					<div class="hidden-xs col-md-4 col-sm-6 text-right header-social">
+
+					<div class="col-sm-3 col-md-4 logout">
+						@if (Auth::check() && Auth::user()->admin)
+							<span class="logo-text"><span class="hidden-sm">!!Admin</span> {{ ucwords(Auth::user()->username) }} </span>
+							<a href="{{ URL::to('logout') }}">
+								<span class="fa fa-sign-out fa-2x" title="Logout"></span>
+							</a>
+						@endif
+					</div>
+	
+					<div class="hidden-xs col-sm-3 col-md-3 text-right header-social">
 						<a href="#"><span class="fa fa-twitter fa-3x" title="twitter"></span></a>
 						<a href="#"><span class="fa fa-facebook fa-3x" title="facebook"></span></a>
 					</div>

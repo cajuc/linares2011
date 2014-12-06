@@ -15,6 +15,7 @@ class CreateTemporadasTable extends Migration {
 		Schema::create('temporadas', function($table){
 			$table->increments('id');
 			$table->string('periodo', 10);
+			$table->boolean('activa')->nullable();
 			$table->timestamps();
 		});
 	}
