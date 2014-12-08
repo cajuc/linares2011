@@ -1,4 +1,5 @@
 <!-- Creo la variable que almacena los datos de la liga requerida -->
+{{--*/ $club = ObtenerRecursos::obtenerClub(); /*--}}
 {{--*/ $liga = ObtenerRecursos::obtenerDatosClasificacion($categoria); /*--}}
 
 <span class="header-clasification">{{ $liga[0]->liga }}</span>
@@ -22,7 +23,13 @@
 		@if ($key == 0)
 			<tr class="active">
 				<td>{{ $key + 1 }}</td>
-				<td>{{ $equipo->nombre }}</td>
+				
+				@if ($equipo->club)
+					<td>{{ $equipo->club }}</td>
+				@else
+					<td>{{ $equipo->nombre }}</td>
+				@endif
+				
 				<td class="hidden-xs">{{ $gamesPlayed }}</td>
 				<td class="hidden-xs">{{ $equipo->partidos_ganados }}</td>
 				<td class="hidden-xs">{{ $equipo->partidos_empatados }}</td>
@@ -32,7 +39,13 @@
 		@else
 			<tr>
 				<td>{{ $key + 1 }}</td>
-				<td>{{ $equipo->nombre }}</td>
+				
+				@if ($equipo->club)
+					<td>{{ $equipo->club }}</td>
+				@else
+					<td>{{ $equipo->nombre }}</td>
+				@endif
+				
 				<td class="hidden-xs">{{ $gamesPlayed }}</td>
 				<td class="hidden-xs">{{ $equipo->partidos_ganados }}</td>
 				<td class="hidden-xs">{{ $equipo->partidos_empatados }}</td>

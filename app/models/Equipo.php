@@ -19,6 +19,10 @@ class Equipo extends Eloquent {
 		return $this->hasMany("Integrante");
 	}
 
+	public function club(){
+		return $this->belongsTo("Club");
+	}
+
 	public function categoria(){
 		return $this->belongsTo("Categoria");
 	}

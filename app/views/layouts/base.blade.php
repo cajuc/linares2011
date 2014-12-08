@@ -16,11 +16,13 @@
 		{{ HTML::style("assets/css/normalize.css") }}
 		{{ HTML::style("assets/css/jquery.smartmenus.bootstrap.css") }}
 		{{ HTML::style("assets/css/fonts.css") }}
+		<!-- Style Tabs Menu -->
+		{{ HTML::style("assets/css/component.css") }}
 		@show
 	</head>
 	<body>
 		<header>
-			<div class="container">
+			<div class="container main">
 				<div class="row">
 					<div class="col-sm-6 col-md-5">
 						{{ HTML::image('assets/images/escudo-linares2011.png', 'escudo linares 2011', ['class' => 'logo-img hidden-xs']) }}
@@ -78,5 +80,8 @@
 		{{ HTML::script('assets/js/jquery.smartmenus.min.js') }}
 		<!-- SmartMenus jQuery Bootstrap Addon -->
 		{{ HTML::script('assets/js/jquery.smartmenus.bootstrap.min.js') }}
+		<!-- Tabs Menu -->
+		{{ HTML::script('assets/js/cbpFWTabs.js') }}
+		{{ HTML::script('assets/js/myScript.js') }}
 	</body>
 </html>

@@ -8,7 +8,7 @@
 		{{ HTML::style("assets/css/font-awesome.min.css") }}
 		{{ HTML::style("assets/css/style-admin.css") }}
 		{{ HTML::style("assets/css/normalize.css") }}
-		{{ HTML::style('http://fonts.googleapis.com/css?family=Josefin+Sans:600') }}
+		{{ HTML::style("assets/css/fonts.css") }}
 	</head>
 	<body>
 		<div class="contenedor-principal">

@@ -16,7 +16,9 @@ class CreateFichasTable extends Migration {
 			$table->increments('id');
 			$table->integer('integrante_id')->unsigned();
 			$table->tinyInteger('peso')->nullable();
-			$table->string('posicion', 30);
+			$table->string('posicion_especifica', 40)->nullable();
+			$table->enum('puesto', array('1', '2', '3', '4', '5',
+						 '6', '7', '8', '9', '10'));
 			$table->date('fecha_nacimiento');
 			$table->decimal('altura', 3, 2)->nullable();
 			$table->string('detalles', 255)->nullable();

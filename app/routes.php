@@ -19,5 +19,9 @@
 // Controlador para manejar la URI 'admin'
 Route::controller('admin', 'AdminController');
 
+// Controlador para manejar la URI 'categoria'
+Route::get('categoria/{categoria}/plantilla', 'CategoriaController@showTemplate');
+Route::controller('categoria', 'CategoriaController');
+
 // Controlador para manejar la URI 'inicio'
 Route::controller('/', 'InicioController');

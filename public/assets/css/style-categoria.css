@@ -1,0 +1,43 @@
+.member, .member div, .member img{
+	border: 1px solid black;
+}
+
+.portero, .defensa, .centrocampo, .delantero{
+	border-top: 3px solid;
+}
+
+.portero{
+	border-top-color: green;
+}
+
+.member-portero{
+	box-shadow: 2px 2px 4px green;
+}
+
+.member-defensa{
+	box-shadow: 2px 2px 4px yellow;
+}
+
+.member-centro{
+	box-shadow: 2px 2px 4px blue;
+}
+
+.member-delantero{
+	box-shadow: 2px 2px 4px red;
+}
+
+.defensa{
+	border-top-color: yellow;
+}
+
+.centrocampo{
+	border-top-color: blue;
+}
+
+.delantero{
+	border-top-color: red;
+}
+
+.content h2{
+	color: #47A3DA;
+}

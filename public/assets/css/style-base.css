@@ -1,6 +1,5 @@
 body{
 	padding-top: 20px;
-	padding-bottom: 20px;
 	font-family: 'Lato normal', sans-serif;
 }
 
@@ -12,7 +11,7 @@ body{
 .logo-text{
 	font-size: 40px;
 	font-family: Tangerine_Bold;
-	color: #246FD8;
+	color: #47A3DA;
 }
 
 .logout{
@@ -32,6 +31,14 @@ body{
 	padding-top: 10px;
 }
 
+.header-social span{
+	color: #47A3DA;
+}
+
+.header-social span:hover{
+	color: #0F71AA;
+}
+
 .header-social a{
 	margin-left: 20px;
 }
@@ -42,7 +49,10 @@ body{
 
 .footer-content{
 	border: 1px solid grey;
-	border-radius: 10px;
+	border-bottom: 0;
+	border-radius: 100px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 	background-color: #E2E2E2;
 	color: #246FD8;
 }
@@ -59,6 +69,10 @@ body{
 .table-spacing tr, .table-spacing td{
 	padding-bottom: 1px!important;
 	padding-top: 1px!important;
+}
+
+.main-content{
+	box-shadow: 0 15px 20px #C6C6C6;
 }
 
 @media (max-width: 768px){
