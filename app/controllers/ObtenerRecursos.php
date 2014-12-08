@@ -40,4 +40,43 @@ class ObtenerRecursos extends BaseController{
 
 		return $liga;
 	}
+
+	// Función para obtener los integrantes del equipo seleccionado
+	public static function obtenerIntegrantes($equipo){
+		$equipo = Equipo::whereSlug($equipo)->get()->first();
+
+		if (!$equipo) {
+			return false;
+		}
+
+		$integrantes = $equipo->integrantes;
+
+		return $integrantes;
+	}
+
+	// Función para obtener los jugadores del equipo seleccionado
+	public static function obtenerJugadores($integrantes){
+		$jugadores = null;
+
+		foreach ($integrantes as $key => $integrante) {
+			if (!$integrante->es_tecnico) {
+				$jugadores[] = $integrante;
+			}
+		}
+
+		return $jugadores;
+	}
+
+	// Función para obtener los técnicos del equipo seleccionado
+	public static function obtenerTecnicos($integrantes){
+		$tecnicos = null;
+
+		foreach ($integrantes as $key => $integrante) {
+			if ($integrante->es_tecnico) {
+				$tecnicos[] = $integrante;
+			}
+		}
+
+		return $tecnicos;
+	}
 }

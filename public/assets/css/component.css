@@ -85,7 +85,7 @@
 /* Content */
 .content section {
 	font-size: 1.25em;
-	padding: 1em 1em;
+	padding: 1em 3em;
 	display: none;
 	max-width: 1230px;
 	margin: 0 auto;
@@ -211,5 +211,9 @@
 
 	.mediabox p {
 		margin: 0;
+	}
+
+	.content section {
+		padding: 1em 1em;
 	}
 }

@@ -1,43 +1,51 @@
-.member, .member div, .member img{
-	border: 1px solid black;
+.member{
+	margin-top: 20px;
+	margin-bottom: 5px;
 }
 
-.portero, .defensa, .centrocampo, .delantero{
-	border-top: 3px solid;
+.member-name{
+	color: #4E5356;
+	font-size: 16px;
 }
 
-.portero{
-	border-top-color: green;
-}
-
-.member-portero{
-	box-shadow: 2px 2px 4px green;
-}
-
-.member-defensa{
-	box-shadow: 2px 2px 4px yellow;
-}
-
-.member-centro{
-	box-shadow: 2px 2px 4px blue;
-}
-
-.member-delantero{
-	box-shadow: 2px 2px 4px red;
-}
-
-.defensa{
-	border-top-color: yellow;
-}
-
-.centrocampo{
-	border-top-color: blue;
-}
-
-.delantero{
-	border-top-color: red;
+.member-as{
+	font-size: 12px;
+	color: #474545;
+	font-weight: bold;
 }
 
 .content h2{
 	color: #47A3DA;
+}
+
+.modal-container{
+	background-color: #F8F8F8; 
+}
+
+.separator-details{
+	display: block;
+	height: 1px;
+	border: 0;
+	border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.modal-image{
+	margin-bottom: 20px;
+}
+
+.modal-text{
+	font-size: 14px;
+	text-align: justify;
+}
+
+@media screen and (max-width: 768px){
+	.member-name{
+		font-size: 12px;
+	}
+
+	.member-as{
+		font-size: 10px;
+	}
 }
