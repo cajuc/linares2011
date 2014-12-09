@@ -68,7 +68,7 @@
 			</a>
 		</div>
 
-		<div class="col-md-4 content-clasificacion">
+		<div class="col-md-4">
 			@include('layouts.table-classification', array('categoria' => 'senior'))
 		</div>
 	</div>

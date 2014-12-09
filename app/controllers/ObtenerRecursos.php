@@ -56,7 +56,7 @@ class ObtenerRecursos extends BaseController{
 
 	// Función para obtener los jugadores del equipo seleccionado
 	public static function obtenerJugadores($integrantes){
-		$jugadores = null;
+		$jugadores = array();
 
 		foreach ($integrantes as $key => $integrante) {
 			if (!$integrante->es_tecnico) {
@@ -69,7 +69,7 @@ class ObtenerRecursos extends BaseController{
 
 	// Función para obtener los técnicos del equipo seleccionado
 	public static function obtenerTecnicos($integrantes){
-		$tecnicos = null;
+		$tecnicos = array();
 
 		foreach ($integrantes as $key => $integrante) {
 			if ($integrante->es_tecnico) {
@@ -78,5 +78,12 @@ class ObtenerRecursos extends BaseController{
 		}
 
 		return $tecnicos;
+	}
+
+	// Función para obtener la categoria del equipo seleccionado
+	public static function obtenerCategoria($equipo){
+		$categoria = Equipo::whereSlug($equipo)->get()->first()->categoria->nombre;
+
+		return $categoria;
 	}
 }

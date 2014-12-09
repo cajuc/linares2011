@@ -1,6 +1,16 @@
 <!-- Creo la variable que almacena los datos de la liga requerida -->
-{{--*/ $club = ObtenerRecursos::obtenerClub(); /*--}}
 {{--*/ $liga = ObtenerRecursos::obtenerDatosClasificacion($categoria); /*--}}
+
+<!-- En caso de no haber datos de la liga requerida se muestra un mensaje -->
+@if (!$liga)
+	<div class="members-notfound">
+		@if (isset($moreDetails))
+			<span class="alert alert-danger col-xs-12 col-sm-12 col-md-offset-3 col-md-6">!!Lo siento, aún no hay datos de clasificación.</span>
+		@else
+			<span class="alert alert-danger col-xs-12 col-sm-12">!!Lo siento, aún no hay datos de clasificación.</span>
+		@endif
+	</div>
+@else
 
 <span class="header-clasification">{{ $liga[0]->liga }}</span>
 
@@ -8,11 +18,18 @@
 	<tr>
 		<th></th>
 		<th>Equipo</th>
-		<th class="hidden-xs">PJ</th>
-		<th class="hidden-xs">PG</th>
-		<th class="hidden-xs">PE</th>
-		<th class="hidden-xs">PP</th>
-		<th>Puntos</th>
+		<th class="hidden-xs text-center">PJ</th>
+		<th class="hidden-xs text-center">PG</th>
+		<th class="hidden-xs text-center">PE</th>
+		<th class="hidden-xs text-center">PP</th>
+
+		@if (isset($moreDetails))
+			<th class="hidden-xs text-center">GF</th>
+			<th class="hidden-xs text-center">GC</th>
+			<th class="hidden-xs text-center">DG</th>
+		@endif
+
+		<th class=" text-center">Puntos</th>
 	</tr>
 
 	
@@ -30,11 +47,18 @@
 					<td>{{ $equipo->nombre }}</td>
 				@endif
 				
-				<td class="hidden-xs">{{ $gamesPlayed }}</td>
-				<td class="hidden-xs">{{ $equipo->partidos_ganados }}</td>
-				<td class="hidden-xs">{{ $equipo->partidos_empatados }}</td>
-				<td class="hidden-xs">{{ $equipo->partidos_perdidos }}</td>
-				<td>{{ $equipo->puntos }}</td>
+				<td class="hidden-xs text-center">{{ $gamesPlayed }}</td>
+				<td class="hidden-xs text-center">{{ $equipo->partidos_ganados }}</td>
+				<td class="hidden-xs text-center">{{ $equipo->partidos_empatados }}</td>
+				<td class="hidden-xs text-center">{{ $equipo->partidos_perdidos }}</td>
+
+				@if (isset($moreDetails))
+					<td class="hidden-xs text-center">{{ $equipo->goles_a_favor }}</td>
+					<td class="hidden-xs text-center">{{ $equipo->goles_en_contra }}</td>
+					<td class="hidden-xs text-center">{{ $equipo->goles_a_favor - $equipo->goles_en_contra }}</td>
+				@endif
+
+				<td class="text-center">{{ $equipo->puntos }}</td>
 			</tr>
 		@else
 			<tr>
@@ -46,12 +70,21 @@
 					<td>{{ $equipo->nombre }}</td>
 				@endif
 				
-				<td class="hidden-xs">{{ $gamesPlayed }}</td>
-				<td class="hidden-xs">{{ $equipo->partidos_ganados }}</td>
-				<td class="hidden-xs">{{ $equipo->partidos_empatados }}</td>
-				<td class="hidden-xs">{{ $equipo->partidos_perdidos }}</td>
-				<td>{{ $equipo->puntos }}</td>
+				<td class="hidden-xs text-center">{{ $gamesPlayed }}</td>
+				<td class="hidden-xs text-center">{{ $equipo->partidos_ganados }}</td>
+				<td class="hidden-xs text-center">{{ $equipo->partidos_empatados }}</td>
+				<td class="hidden-xs text-center">{{ $equipo->partidos_perdidos }}</td>
+
+				@if (isset($moreDetails))
+					<td class="hidden-xs text-center">{{ $equipo->goles_a_favor }}</td>
+					<td class="hidden-xs text-center">{{ $equipo->goles_en_contra }}</td>
+					<td class="hidden-xs text-center">{{ $equipo->goles_a_favor - $equipo->goles_en_contra }}</td>
+				@endif
+
+				<td class="text-center">{{ $equipo->puntos }}</td>
 			</tr>
 		@endif
 	@endforeach
 </table>
+@endif
+

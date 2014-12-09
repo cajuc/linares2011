@@ -14,7 +14,13 @@
 	font-weight: bold;
 }
 
-.content h2{
+.members-notfound{
+	text-align: center;
+}
+
+.category-header{
+	font-family: 'Tangerine_bold';
+	font-size: 40px;
 	color: #47A3DA;
 }
 
@@ -47,5 +53,9 @@
 
 	.member-as{
 		font-size: 10px;
+	}
+
+	.members-notfound{
+		font-size: 12px;
 	}
 }
