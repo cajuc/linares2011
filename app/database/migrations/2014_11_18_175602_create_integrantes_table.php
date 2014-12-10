@@ -16,6 +16,7 @@ class CreateIntegrantesTable extends Migration {
 			$table->increments('id');
 			$table->integer('equipo_id')->unsigned();
 			$table->string('nombre', 45);
+			$table->string('apellidos', 60);
 			$table->string('alias', 45);
 			$table->string('nombre_imagen', 30)->nullable();
 			$table->boolean('es_tecnico');

@@ -1,14 +1,19 @@
 <section id="section-1">
 	<h2 class="text-center category-header">Jugadores</h2>
 	@forelse ($jugadores as $index => $jugador)
-	<div class="col-xs-6 col-sm-3 col-md-2">
-		<div>
+	<div class="col-xs-6 col-sm-3 col-md-2 member">
+		<div class="text-center">
 			<a href="#" data-toggle="modal" data-target="#{{ $jugador->id }}">
-				{{ HTML::image('assets/images/member/'.$jugador->nombre_imagen, $jugador->nombre, array('class' => 'img-responsive img-thumbnail member')) }}
+				{{ HTML::image('assets/images/member/'.$jugador->nombre_imagen, $jugador->nombre, array('class' => 'img-responsive img-thumbnail')) }}
 			</a>
 		</div>
 		<div class="text-center">
-			<span class="member-name">{{ ucwords($jugador->nombre) }}</span>
+			@if ($jugador->alias)
+				<span class="member-name">{{ ucwords($jugador->alias) }}</span>
+			@else
+				<span class="member-name">{{ ucwords($jugador->nombre) }}</span>
+			@endif
+
 			<div class="clearfix"></div>
 			<small class="member-as">{{ ucwords($puestos[$jugador->ficha->puesto - 1]) }}</small>
 		</div>
@@ -20,7 +25,7 @@
 					<button type="button" class="close" data-dismiss="modal">
 					<span>&times;</span>
 					</button>
-					<h4 class="modal-title text-center">{{ ucwords($jugador->nombre) }}</h4>
+					<h4 class="modal-title text-center">{{ ucwords($jugador->nombre), ' ', ucwords($jugador->apellidos) }}</h4>
 				</div>
 				<div class="modal-body">
 					<div>

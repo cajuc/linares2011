@@ -9,13 +9,15 @@ class IntegrantesTableSeeder extends Seeder{
 		foreach (range(1, 2) as $index) {
 			Integrante::create([
 				'equipo_id' => 1,
-				'nombre' => $faker->name,
+				'nombre' => $faker->firstNameMale,
+				'apellidos' => $faker->lastName,
 				'nombre_imagen' => 'player.jpeg',
 				'es_tecnico' => 0
 			]);
 
-			$integrante = Integrante::all();
-			$integrante = $integrante->last();
+			$integrante = Integrante::all()->last();
+			$integrante->alias = $integrante->nombre;
+			$integrante->save();
 
 			Ficha::create([
 				'integrante_id' => $integrante->id,
@@ -31,13 +33,15 @@ class IntegrantesTableSeeder extends Seeder{
 		foreach (range(1, 6) as $index) {
 			Integrante::create([
 				'equipo_id' => 1,
-				'nombre' => $faker->name,
+				'nombre' => $faker->firstNameMale,
+				'apellidos' => $faker->lastName,
 				'nombre_imagen' => 'player.jpeg',
 				'es_tecnico' => 0
 			]);
 
-			$integrante = Integrante::all();
-			$integrante = $integrante->last();
+			$integrante = Integrante::all()->last();
+			$integrante->alias = $integrante->nombre;
+			$integrante->save();
 
 			Ficha::create([
 				'integrante_id' => $integrante->id,
@@ -53,13 +57,15 @@ class IntegrantesTableSeeder extends Seeder{
 		foreach (range(1, 8) as $index) {
 			Integrante::create([
 				'equipo_id' => 1,
-				'nombre' => $faker->name,
+				'nombre' => $faker->firstNameMale,
+				'apellidos' => $faker->lastName,
 				'nombre_imagen' => 'player.jpeg',
 				'es_tecnico' => 0
 			]);
 
-			$integrante = Integrante::all();
-			$integrante = $integrante->last();
+			$integrante = Integrante::all()->last();
+			$integrante->alias = $integrante->nombre;
+			$integrante->save();
 
 			Ficha::create([
 				'integrante_id' => $integrante->id,
@@ -75,13 +81,15 @@ class IntegrantesTableSeeder extends Seeder{
 		foreach (range(1, 2) as $index) {
 			Integrante::create([
 				'equipo_id' => 1,
-				'nombre' => $faker->name,
+				'nombre' => $faker->firstNameMale,
+				'apellidos' => $faker->lastName,
 				'nombre_imagen' => 'player.jpeg',
 				'es_tecnico' => 0
 			]);
 
-			$integrante = Integrante::all();
-			$integrante = $integrante->last();
+			$integrante = Integrante::all()->last();
+			$integrante->alias = $integrante->nombre;
+			$integrante->save();
 
 			Ficha::create([
 				'integrante_id' => $integrante->id,

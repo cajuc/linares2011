@@ -3,7 +3,7 @@
 
 <!-- En caso de no haber datos de la liga requerida se muestra un mensaje -->
 @if (!$liga)
-	<div class="members-notfound">
+	<div class="text-center">
 		@if (isset($moreDetails))
 			<span class="alert alert-danger col-xs-12 col-sm-12 col-md-offset-3 col-md-6">!!Lo siento, aún no hay datos de clasificación.</span>
 		@else
