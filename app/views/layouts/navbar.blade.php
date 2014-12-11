@@ -66,17 +66,17 @@
 				@else
 					<li>
 				@endif
-				<a href="#">Trofeos</a></li>
+				<a href="{{ URL::to('trofeos') }}">Trofeos</a></li>
 			</ul>
 
 			@if (Auth::check() && Auth::user()->admin)
 				<ul class="nav navbar-nav navbar-right">
-					@if ($itemActive == 'categoria')
+					@if ($itemActive == 'settings')
 						<li class="active">
 					@else
 						<li>
 					@endif
-					<a href="{{ URL::to('/settings') }}">Administrar</a></li>
+					<a href="{{ URL::to('settings') }}">Administrar</a></li>
 				</ul>
 			@endif
 		</div>

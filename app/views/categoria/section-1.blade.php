@@ -4,7 +4,7 @@
 	<div class="col-xs-6 col-sm-3 col-md-2 member">
 		<div class="text-center">
 			<a href="#" data-toggle="modal" data-target="#{{ $jugador->id }}">
-				{{ HTML::image('assets/images/member/'.$jugador->nombre_imagen, $jugador->nombre, array('class' => 'img-responsive img-thumbnail')) }}
+				{{ HTML::image('assets/images/members/'.$jugador->nombre_imagen, $jugador->nombre, array('class' => 'img-responsive img-thumbnail')) }}
 			</a>
 		</div>
 		<div class="text-center">
@@ -30,7 +30,7 @@
 				<div class="modal-body">
 					<div>
 						<div class="col-sm-4 col-md-4">
-							{{ HTML::image('assets/images/member/'.$jugador->nombre_imagen, $jugador->nombre, array('class' => 'img-responsive img-rounded modal-image')) }}
+							{{ HTML::image('assets/images/members/'.$jugador->nombre_imagen, $jugador->nombre, array('class' => 'img-responsive img-rounded modal-image')) }}
 						</div>
 						<div class="col-xs-6 col-sm-4 col-md-4">
 							<p>Posición</p>
@@ -79,7 +79,7 @@
 	<div class="col-xs-6 col-sm-3 col-md-2">
 		<div>
 			<a href="#" data-toggle="modal" data-target="#{{ $tecnico->id }}">
-				{{ HTML::image('assets/images/member/'.$tecnico->nombre_imagen, $tecnico->nombre, array('class' => 'img-responsive img-thumbnail member')) }}
+				{{ HTML::image('assets/images/members/'.$tecnico->nombre_imagen, $tecnico->nombre, array('class' => 'img-responsive img-thumbnail member')) }}
 			</a>
 		</div>
 		<div class="text-center">
@@ -100,7 +100,7 @@
 				<div class="modal-body">
 					<div>
 						<div class="col-sm-4 col-md-4">
-							{{ HTML::image('assets/images/member/'.$tecnico->nombre_imagen, $tecnico->nombre, array('class' => 'img-responsive img-rounded modal-image')) }}
+							{{ HTML::image('assets/images/members/'.$tecnico->nombre_imagen, $tecnico->nombre, array('class' => 'img-responsive img-rounded modal-image')) }}
 						</div>
 						<div class="col-xs-6 col-sm-4 col-md-4">
 							<p>Puesto</p>

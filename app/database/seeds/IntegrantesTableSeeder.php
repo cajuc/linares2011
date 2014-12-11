@@ -100,5 +100,41 @@ class IntegrantesTableSeeder extends Seeder{
 				'detalles' => $faker->text(200)
 			]);
 		}
+
+		// Seed técnico 'entrenador'
+		Integrante::create([
+			'equipo_id' => 1,
+			'nombre' => $faker->firstNameMale,
+			'apellidos' => $faker->lastName,
+			'nombre_imagen' => 'coaching-staff.jpg',
+			'es_tecnico' => 1
+		]);
+
+		$integrante = Integrante::all()->last();
+
+		Ficha::create([
+			'integrante_id' => $integrante->id,
+			'puesto' => '5',
+			'fecha_nacimiento' => $faker->date(),
+			'detalles' => $faker->text(200)
+		]);
+
+		// Seed técnico 'delegado'
+		Integrante::create([
+			'equipo_id' => 1,
+			'nombre' => $faker->firstNameMale,
+			'apellidos' => $faker->lastName,
+			'nombre_imagen' => 'coaching-staff.jpg',
+			'es_tecnico' => 1
+		]);
+
+		$integrante = Integrante::all()->last();
+
+		Ficha::create([
+			'integrante_id' => $integrante->id,
+			'puesto' => '7',
+			'fecha_nacimiento' => $faker->date(),
+			'detalles' => $faker->text(200)
+		]);		
 	}
 }

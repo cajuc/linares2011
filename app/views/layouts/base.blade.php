@@ -24,16 +24,17 @@
 		<header>
 			<div class="container main">
 				<div class="row">
-					<div class="col-sm-6 col-md-5">
-						{{ HTML::image('assets/images/escudo-linares2011.png', 'escudo linares 2011', ['class' => 'logo-img hidden-xs']) }}
-						<span class="logo-text">Linares C.F</span>
+					<div class="col-xs-3 col-sm-6 col-md-5">
+						<a href="/">{{ HTML::image('assets/images/escudo-linares2011.png', 'escudo linares 2011', ['class' => 'logo-img img-responsive']) }}
+						</a>
+						<span class="logo-text hidden-xs">Linares C.F</span>
 					</div>
 
-					<div class="col-sm-3 col-md-4 logout">
+					<div class="col-xs-12 col-sm-3 col-md-4 logout">
 						@if (Auth::check() && Auth::user()->admin)
 							<span class="logo-text"><span class="hidden-sm">!!Admin</span> {{ ucwords(Auth::user()->username) }} </span>
 							<a href="{{ URL::to('logout') }}">
-								<span class="fa fa-sign-out fa-2x" title="Logout"></span>
+								<span class="fa fa-sign-out fa-2x" title="Cerrar Sesión"></span>
 							</a>
 						@endif
 					</div>
