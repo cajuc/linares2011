@@ -83,6 +83,7 @@
 		{{ HTML::script('assets/js/jquery.smartmenus.bootstrap.min.js') }}
 		<!-- Tabs Menu -->
 		{{ HTML::script('assets/js/cbpFWTabs.js') }}
+		<!-- My script -->
 		{{ HTML::script('assets/js/myScript.js') }}
 	</body>
 </html>

@@ -86,4 +86,33 @@ class ObtenerRecursos extends BaseController{
 
 		return $categoria;
 	}
+
+	public static function obtenerTemporadas(){
+		$temporadas = Temporada::orderBy('periodo', 'Desc')->get();
+
+		return $temporadas;
+	}
+
+	public static function obtenerSliderImages(){
+		$slider_images = Slider::orderBy('orden')->get();
+
+		return $slider_images;
+	}
+
+	public static function subirSliderImage($image){
+		$exist = Slider::where('nombre_imagen', '=', $image->getClientOriginalName())->get();
+
+		// var_dump(empty($exist->toArray()));die();
+
+		if (!empty($exist->toArray())) {
+			return ['success' => false, 'image' => $image->getClientOriginalName()];
+		}else{
+			Slider::create([
+				'nombre_imagen' => $image->getClientOriginalName(),
+				'usar' => 0
+			]);
+		}
+
+		return ['success' => true, 'image' => $image->getClientOriginalName()];
+	}
 }

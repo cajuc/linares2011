@@ -21,10 +21,9 @@ Route::controller('admin', 'AdminController');
 
 // Controlador para manejar la URI 'categoria'
 Route::get('categoria/{equipo}/plantilla', 'CategoriaController@showTemplate');
-Route::controller('categoria', 'CategoriaController');
 
 // Controlador para manejar la URI 'trofeos'
-Route::controller('trofeos', 'TrofeosController');
+Route::get('trofeos/'.Paginator::getPageName().'/{page?}', 'TrofeosController@displayTrophys');
 
 // Controlador para manejar la URI 'settings'
 Route::controller('settings', 'SettingsController');

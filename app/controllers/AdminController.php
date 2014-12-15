@@ -26,13 +26,13 @@ class AdminController extends BaseController{
 	}
 
 	// Función para crear un usuario
-	public function getCrear(){
-		User::create(array(
-			'username' => 'david',
-			'password' => Hash::make('david'),
-			'admin' => 1
-		));
+	// public function getCrear(){
+	// 	User::create(array(
+	// 		'username' => 'carlos',
+	// 		'password' => Hash::make('carlos'),
+	// 		'admin' => 1
+	// 	));
 
-		return 'User created';
-	}
+	// 	return 'User created';
+	// }
 }

@@ -66,7 +66,7 @@
 				@else
 					<li>
 				@endif
-				<a href="{{ URL::to('trofeos') }}">Trofeos</a></li>
+				<a href="{{ URL::to('trofeos/page/1') }}">Trofeos</a></li>
 			</ul>
 
 			@if (Auth::check() && Auth::user()->admin)

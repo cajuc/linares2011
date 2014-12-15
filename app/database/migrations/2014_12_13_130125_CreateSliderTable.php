@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTemporadasTable extends Migration {
+class CreateSliderTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,11 @@ class CreateTemporadasTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('temporadas', function($table){
+		Schema::create('sliders', function($table){
 			$table->increments('id');
-			$table->string('periodo', 10)->unique();
-			$table->boolean('activa')->nullable();
+			$table->string('nombre_imagen', 45);
+			$table->enum('1', '2', '3', '4', '5')->nullable();
+			$table->tinyInteger('publicar');
 			$table->timestamps();
 		});
 	}
@@ -27,7 +28,7 @@ class CreateTemporadasTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('temporadas');
+		Schema::drop('sliders');
 	}
 
 }
