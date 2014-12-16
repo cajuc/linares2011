@@ -16,56 +16,61 @@
 <section class="container">
 	<div class="row">
 		<div id="main-slider" class="carousel slide col-md-8 content-slider" data-ride="carousel">
-			<!-- Indicadores -->
-			<ol class="carousel-indicators">
-				<li data-target="#main-slider" data-slide-to="0" class="active"></li>
-				<li data-target="#main-slider" data-slide-to="1"></li>
-				<li data-target="#main-slider" data-slide-to="2"></li>
-				<li data-target="#main-slider" data-slide-to="3"></li>
-				<li data-target="#main-slider" data-slide-to="4"></li>
-			</ol>
-			<!-- Contenido para slider -->
-			<div class="carousel-inner" role="listbox">
-				<div class="item active">
-					<img src="http://lorempixel.com/800/400/" alt="...">
-					<div class="carousel-caption">
-						<h1>Imagen 1</h1>
-					</div>
+			@if (count($slider_images->toArray()))
+				<!-- Indicadores -->
+				<ol class="carousel-indicators">
+				
+				@foreach ($slider_images as $index => $element)
+					@if (!$index)
+						<li data-target="#main-slider" data-slide-to="{{ $index }}" class="active"></li>
+					@else
+						<li data-target="#main-slider" data-slide-to="{{ $index }}"></li>
+					@endif
+				@endforeach
+				
+				</ol>
+
+				<!-- Contenido para slider -->
+				<div class="carousel-inner" role="listbox">
+					@foreach ($slider_images as $index => $slider_image)
+						@if (!$index)
+							<div class="item active">
+								{{ HTML::image('assets/images/slider/'.$slider_image->nombre_imagen, $slider_image->nombre_imagen, array('class' => 'img-responsive img-slider')) }}
+								<div class="carousel-caption">
+									<h3>{{ $slider_image->titulo }}</h3>
+									@if ($slider_image->descripcion)
+										<p>{{ $slider_image->descripcion }}</p>
+									@endif
+								</div>
+							</div>
+						@else
+							<div class="item">
+								{{ HTML::image('assets/images/slider/'.$slider_image->nombre_imagen, $slider_image->nombre_imagen, array('class' => 'img-responsive img-slider')) }}
+								<div class="carousel-caption">
+									<h3>{{ $slider_image->titulo }}</h3>
+									@if ($slider_image->descripcion)
+										<p>{{ $slider_image->descripcion }}</p>
+									@endif
+								</div>
+							</div>
+						@endif
+					@endforeach
 				</div>
-				<div class="item">
-					<img src="http://lorempixel.com/800/400/" alt="...">
-					<div class="carousel-caption">
-						<h1>Imagen 2</h1>
-					</div>
-				</div>
-				<div class="item">
-					<img src="http://lorempixel.com/800/400/" alt="...">
-					<div class="carousel-caption">
-						<h1>Imagen 3</h1>
-					</div>
-				</div>
-				<div class="item">
-					<img src="http://lorempixel.com/800/400/" alt="...">
-					<div class="carousel-caption">
-						<h1>Imagen 4</h1>
-					</div>
-				</div>
-				<div class="item">
-					<img src="http://lorempixel.com/800/400/" alt="...">
-					<div class="carousel-caption">
-						<h1>Imagen 5</h1>
-					</div>
-				</div>
-			</div>
-			<!-- Controles -->
-			<a class="left carousel-control" href="#main-slider" role="button" data-slide="prev">
-				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-				<!-- <span class="sr-only">Previous</span> -->
-			</a>
-			<a class="right carousel-control" href="#main-slider" role="button" data-slide="next">
-				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				<!-- <span class="sr-only">Next</span> -->
-			</a>
+
+				<!-- Controles -->
+				<a class="left carousel-control" href="#main-slider" role="button" data-slide="prev">
+					<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+					<!-- <span class="sr-only">Previous</span> -->
+				</a>
+				<a class="right carousel-control" href="#main-slider" role="button" data-slide="next">
+					<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+					<!-- <span class="sr-only">Next</span> -->
+				</a>
+			@else
+				<span class="alert alert-danger col-xs-12 col-sm-12 col-md-offset-2 col-md-8 text-center">
+					No existe ninguna publicación del slider
+				</span>
+			@endif
 		</div>
 
 		<div class="col-md-4">

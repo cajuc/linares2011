@@ -1,3 +1,6 @@
+<!-- Valor real del puesto del integrante -->
+{{--*/ $puestos = array("portero", "defensa", "centro", "delantero", "entrenador", "2º entrenador", "delegado", "preparador físico"); /*--}}
+
 <section id="section-1">
 	<h2 class="text-center category-header">Jugadores</h2>
 	@forelse ($jugadores as $index => $jugador)
@@ -45,7 +48,7 @@
 							<p>{{ ucwords($jugador->ficha->posicion_especifica) }}</p>
 							@endif
 							
-							<p>{{ $jugador->ficha->fecha_nacimiento }}</p>
+							<p>{{ date("d/m/Y", strtotime($jugador->ficha->fecha_nacimiento)) }}</p>
 							<p>{{ $jugador->ficha->peso }} Kg</p>
 							<p>{{ $jugador->ficha->altura }} cm</p>
 						</div>

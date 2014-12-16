@@ -45,8 +45,7 @@ class TrofeosController extends BaseController{
 		return View::make('trofeos')->with([
 			'itemActive' => 'trofeos',
 			'trofeos' => $trofeos,
-			'paginator' => $paginator,
-			'temporadas' => $temporadas
+			'paginator' => $paginator
 		]);
 	}
 }

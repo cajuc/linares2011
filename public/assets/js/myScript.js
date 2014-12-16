@@ -3,8 +3,7 @@ new CBPFWTabs( document.getElementById( 'tabs' ) );
 
 // Función para enviar FormData y obtener la imagen que se desea añadir
 $(document).ready(function(e){
-	$('#message-upload').hide();
-
+	// Operación para subir images
 	$('#form-upload').on('submit', function(e){
 		e.preventDefault();
 
@@ -18,7 +17,7 @@ $(document).ready(function(e){
 			dataType: 'json',
 			data: formData,
 			success: function (data){
-				$('#message-upload').empty();
+				$('#message-upload').fadeOut('fast').empty();
 
 				if(!data.success){
 					$.each(data.errors, function(index, errors) {
@@ -35,10 +34,10 @@ $(document).ready(function(e){
 							files = files + name + ', ';
 						});
 						
-						$('#message-upload').append('<li class="list-group-item list-group-item-success">Los ficheros '+ files +' se añadieron correctamente!!</li>').slideDown('1000');
-						
-						// Refrescar página
-						$("#box-slider").fadeOut('fast').load(location.href + " #box-slider>*").fadeIn('slow');
+						$('#message-upload').append('<li class="list-group-item list-group-item-success">Los ficheros '+ files +' se añadieron correctamente!!</li>').slideDown('slow');
+
+						// Refrescar tabla
+						refrescarTableSlider();
 					}
 
 					files = '';
@@ -48,33 +47,90 @@ $(document).ready(function(e){
 							 files = files + name + ', ';
 						});
 
-						$('#message-upload').append('<li class="list-group-item list-group-item-danger">Los ficheros '+ files +' se añadieron anteriormente!!</li>').slideDown('1000');
+						$('#message-upload').append('<li class="list-group-item list-group-item-danger">Los ficheros '+ files +' se añadieron anteriormente!!</li>').slideDown('slow');
 					}
 				}
 			}
 		});
 	});
 
-	// $("#form-slider").on('submit', function(e){
-	// 	e.preventDefault();
+	// Operación para realizar la actualización de un slider-image
+	$("#box-slider").on('click', 'button[name=sliderImage-edit]', function(e){
+		e.preventDefault();
 
-	// 	$("#message-sliderAdd").empty().hide('slow');
+		$("#message-sliderError").fadeOut('fast').empty();
+		$("#message-slider").fadeOut('fast').empty();
 
-	// 	var orden = $("input[name=orden]").val();
-	// 	var nombre_imagen = $("input[name=nombre_imagen]").val();
+		var id = $(this).val();
+		var orden = $("input[name=orden"+ id +"]").val();
+		var publicar = $("select[name=publicar"+ id +"]").val();
+		var file = $("input[name=nombre_imagen"+ id +"]").val();
+		var titulo = $("input[name=titulo"+ id +"]").val();
+		var descripcion = $("input[name=descripcion"+ id +"]").val();
 
-	// 	if (!orden || !nombre_imagen) {
-	// 		$("#message-sliderAdd").html("Debes rellenar todos los campos").slideDown('slow');
-	// 	}else{
-	// 		$.ajax({
-	// 			url: 'settings/add-image',
-	// 			type: 'post',
-	// 			dataType: 'json',
-	// 			data: {orden: orden, nombre_imagen: nombre_imagen},
-	// 			success: function (data){
+		if (!orden || !publicar || !titulo) {
+			$("#message-sliderError").html("Debes rellenar los campos obligatorios").slideDown('slow').delay(3000).fadeOut('slow');
+		}else{
+			$.ajax({
+				url: 'settings/update-slider-image',
+				type: 'post',
+				dataType: 'json',
+				data: {orden: orden, publicar: publicar, id: id, file: file, titulo: titulo, descripcion: descripcion},
+				success: function (data){
+					console.log(data);
+					if (data.success) {
+						message_slider = "El fichero "+ data.file +" se ha actualizado correctamente";
+						message_sliderClass = "alert-success";
+					}else{
+						
+						if (data.limits) {
+							message_slider = "El fichero "+ data.file +" no se pudo actualizar, ya que se ha alcanzado el máximo de publicaciones";
+						}else{
+							message_slider = "El fichero "+ data.file +" no se pudo actualizar";
+						}
 
-	// 			}
-	// 		});
-	// 	}
-	// });
+						message_sliderClass = "alert-danger";
+					}
+
+					$("#message-slider").toggleClass(message_sliderClass, true).html(message_slider).slideDown('slow').delay(3000).fadeOut('slow');
+				}
+			});
+		}
+	});
+
+	// Operación para eliminar un slider-image
+	$("#box-slider").on('click', 'button[name=sliderImage-delete]', function(e){
+		e.preventDefault();
+
+		$("#message-slider").fadeOut('fast');
+
+		var id = $(this).val();
+		var file = $("input[name=nombre_imagen"+ id +"]").val();
+
+		$.ajax({
+			url: 'settings/delete-slider-image',
+			type: 'post',
+			dataType: 'json',
+			data: {id: id, file: file},
+			success: function (data){
+				if (data.success) {
+					message_slider = "El fichero "+ data.file +" se eliminó correctamente";
+					message_sliderClass = "alert-success";
+
+					refrescarTableSlider();
+				}else{
+					message_slider = "El fichero "+ data.file +" no se pudo eliminar";
+					message_sliderClass = "alert-danger";
+				}
+
+				$("#message-slider").toggleClass(message_sliderClass, true).html(message_slider).slideDown('slow').delay(3000).fadeOut('slow');
+			}
+		});
+	});
+
+	// Función para refrescar la table Slider
+	function refrescarTableSlider(){
+		$("#box-slider").fadeOut('fast').load(location.href + " #box-slider>*").fadeIn('slow');
+	}
 });
+

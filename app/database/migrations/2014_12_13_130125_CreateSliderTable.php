@@ -16,6 +16,8 @@ class CreateSliderTable extends Migration {
 			$table->increments('id');
 			$table->string('nombre_imagen', 45);
 			$table->enum('1', '2', '3', '4', '5')->nullable();
+			$table->string('titulo', 60);
+			$table->text('descripcion')->nullable();
 			$table->tinyInteger('publicar');
 			$table->timestamps();
 		});

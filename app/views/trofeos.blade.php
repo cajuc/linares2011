@@ -16,17 +16,6 @@
 	<section class="container main-content">
 		<span class="logo-text col-xs-12 col-sm-6 col-md-6">Trofeos Linares C.F 2011</span>
 
-		<!-- {{ Form::open(array('url' => URL::to('trofeos/page') )) }}
-		<div class="col-xs-12 col-sm-6 col-md-offset-3 col-md-3">
-			<select class="form-control input-sm dropdown-trophys text-center" name="temporada" onchange="this.form.submit();">
-				<option disabled selected>[Selecciona temporada]</option>
-				@foreach ($temporadas as $temporada)
-					<option value="{{ $temporada->id }}">{{ $temporada->periodo }}</option>
-				@endforeach
-			</select>
-		</div>	
-		{{ Form::close() }} -->
-
 		<div class="clearfix"></div>
 
 		@forelse ($trofeos as $trofeo)

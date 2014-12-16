@@ -2,3 +2,20 @@
 	padding-left: 0;
 	padding-right: 0;
 }
+
+.img-slider{
+	width: 800px!important;
+	height: 450px!important;
+}
+
+@media screen and (max-width: 768px){
+	.img-slider{
+		height: 320px!important;
+	}
+}
+
+@media screen and (max-width: 480px){
+	.img-slider{
+		height: 200px!important;
+	}
+}

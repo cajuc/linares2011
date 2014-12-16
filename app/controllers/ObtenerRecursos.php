@@ -94,7 +94,7 @@ class ObtenerRecursos extends BaseController{
 	}
 
 	public static function obtenerSliderImages(){
-		$slider_images = Slider::orderBy('orden')->get();
+		$slider_images = Slider::orderBy('publicar', 'Desc')->orderBy('updated_at', 'Desc')->get();
 
 		return $slider_images;
 	}
@@ -109,10 +109,29 @@ class ObtenerRecursos extends BaseController{
 		}else{
 			Slider::create([
 				'nombre_imagen' => $image->getClientOriginalName(),
-				'usar' => 0
+				'usar' => 0,
+				'titulo' => ''
 			]);
 		}
 
 		return ['success' => true, 'image' => $image->getClientOriginalName()];
+	}
+
+	public static function obtenerSliderImagesPublished($id = null){
+		$exist = false;
+
+		if ($id) {
+			$exist = Slider::find($id);
+
+			if ($exist->publicar) {
+				$exist = true;
+			}else{
+				$exist = false;
+			}
+		}
+
+		$slider_images = Slider::wherePublicar(1)->orderBy('orden')->orderBy('updated_at', 'Desc')->get();
+
+		return array('slider_images' => $slider_images, 'exist' => $exist);
 	}
 }

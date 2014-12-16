@@ -23,9 +23,6 @@ class SettingsController extends BaseController{
 		$doneUpload = null;
 		$failUpload = null;
 
-
-		// var_dump($file);
-
 		// Mensajes personalizados
 		$messages = array(
 			'required' => 'Debes seleccionar una imagen',
@@ -49,8 +46,6 @@ class SettingsController extends BaseController{
 			// Añadir imagen en la base de datos
 			$results = ObtenerRecursos::subirSliderImage($file);
 
-			// var_dump($results);die();
-
 			if (!$results['success']) {
 				$failUpload[] = $results['image'];
 			}else{
@@ -60,5 +55,43 @@ class SettingsController extends BaseController{
 		}
 
 		return Response::json(['success' => true, 'failUpload' => $failUpload, 'doneUpload' => $doneUpload]);
+	}
+
+	public function postUpdateSliderImage(){
+		// Comprobar que se desea hacer una publicación
+		if (Input::get('publicar')) {
+			$data = ObtenerRecursos::obtenerSliderImagesPublished(Input::get('id'));
+
+			if (count($data['slider_images']->toArray()) == 5 && !$data['exist']) {
+				return Response::json(['success' => false, 'file' => Input::get('file'), 'limits' => true]);
+			}
+
+		}
+
+		$slider_image = Slider::find(Input::get('id'));
+		$slider_image->orden = Input::get('orden');
+		$slider_image->publicar = Input::get('publicar');
+		$slider_image->titulo = Input::get('titulo');
+		$slider_image->descripcion = Input::get('descripcion');
+		$slider_image->updated_at = date("Y-m-d H:i:s", time());
+		$saved = $slider_image->save();
+
+		if (!$saved) {
+			return Response::json(['success' => false, 'file' => Input::get('file'), 'limits' => false]);
+		}
+
+		return Response::json(['success' => true, 'file' => Input::get('file'), 'limits' => false]);
+	}
+
+	public function postDeleteSliderImage(){
+		$slider_image = Slider::find(Input::get('id'));
+		$delete_row = $slider_image->delete();
+		$delete_file = File::delete('assets/images/slider/'.Input::get('file'));
+
+		if (!$delete_row && !$delete_file) {
+			return Response::json(['success' => false, 'file' => Input::get('file')]);
+		}
+
+		return Response::json(['success' => true, 'file' => Input::get('file')]);
 	}
 }

@@ -2,7 +2,9 @@
 
 class InicioController extends BaseController{
 	public function getIndex(){
-		return View::make('inicio')->with('itemActive', 'inicio');
+		$slider_images = ObtenerRecursos::obtenerSliderImagesPublished();
+
+		return View::make('inicio')->with(array('itemActive' => 'inicio', 'slider_images' => $slider_images['slider_images']));
 	}
 
 	// Ruta que controla el cierre de sesión y redirige a la página principal

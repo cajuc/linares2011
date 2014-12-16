@@ -21,40 +21,42 @@
 		@show
 	</head>
 	<body>
-		<header>
-			<div class="container main">
-				<div class="row">
-					<div class="col-xs-3 col-sm-6 col-md-5">
-						<a href="/">{{ HTML::image('assets/images/escudo-linares2011.png', 'escudo linares 2011', ['class' => 'logo-img img-responsive']) }}
-						</a>
-						<span class="logo-text hidden-xs">Linares C.F</span>
-					</div>
-
-					<div class="col-xs-12 col-sm-3 col-md-4 logout">
-						@if (Auth::check() && Auth::user()->admin)
-							<span class="logo-text"><span class="hidden-sm">!!Admin</span> {{ ucwords(Auth::user()->username) }} </span>
-							<a href="{{ URL::to('logout') }}">
-								<span class="fa fa-sign-out fa-2x" title="Cerrar Sesión"></span>
+		<div class="wrap">
+			<header>
+				<div class="container main">
+					<div class="row">
+						<div class="col-xs-3 col-sm-6 col-md-5">
+							<a href="/">{{ HTML::image('assets/images/escudo-linares2011.png', 'escudo linares 2011', ['class' => 'logo-img img-responsive']) }}
 							</a>
-						@endif
-					</div>
-	
-					<div class="hidden-xs col-sm-3 col-md-3 text-right header-social">
-						<a href="#"><span class="fa fa-twitter fa-3x" title="twitter"></span></a>
-						<a href="#"><span class="fa fa-facebook fa-3x" title="facebook"></span></a>
+							<span class="logo-text hidden-xs">Linares C.F</span>
+						</div>
+
+						<div class="col-xs-12 col-sm-3 col-md-4 logout">
+							@if (Auth::check() && Auth::user()->admin)
+								<span class="logo-text"><span class="hidden-sm">!!Admin</span> {{ ucwords(Auth::user()->username) }} </span>
+								<a href="{{ URL::to('logout') }}">
+									<span class="fa fa-sign-out fa-2x" title="Cerrar Sesión"></span>
+								</a>
+							@endif
+						</div>
+		
+						<div class="hidden-xs col-sm-3 col-md-3 text-right header-social">
+							<a href="#"><span class="fa fa-twitter fa-3x" title="twitter"></span></a>
+							<a href="#"><span class="fa fa-facebook fa-3x" title="facebook"></span></a>
+						</div>
 					</div>
 				</div>
-			</div>
-		</header>
+			</header>
+			
+			<br>
+			
+			@include('layouts.navbar')
+			
+			@yield('content')
+		</div>
 		
 		<br>
-		
-		@include('layouts.navbar')
-		
-		@yield('content')
-		
-		<br>
-		
+
 		<footer>
 			<div class="container-fluid footer-content">
 				<div class="container">
