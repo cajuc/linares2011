@@ -19,7 +19,7 @@
 				<nav>
 					<ul>
 						<li><a href="#section-1" class="fa fa-home"><span>Inicio</span></a></li>
-						<li><a href="#section-2" class="fa fa-ellipsis-v"><span>Categoría</span></a></li>
+						<li><a href="#section-2" class="fa fa-shield"><span>Club</span></a></li>
 						<li><a href="#section-3" class="fa fa-trophy"><span>Trofeos</span></a></li>
 					</ul>
 				</nav>
@@ -28,9 +28,8 @@
 					@include('settings.section-1')
 
 					@include('settings.section-2')
-					<section id="section-3">
-						
-					</section>
+					
+					@include('settings.section-3')
 				</div>
 			</div>
 		</div>

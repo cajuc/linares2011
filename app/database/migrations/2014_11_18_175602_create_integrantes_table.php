@@ -14,7 +14,7 @@ class CreateIntegrantesTable extends Migration {
 	{
 		Schema::create('integrantes', function($table){
 			$table->increments('id');
-			$table->integer('equipo_id')->unsigned();
+			$table->integer('equipo_id')->unsigned()->nullable();
 			$table->string('nombre', 45);
 			$table->string('apellidos', 60);
 			$table->string('alias', 45);

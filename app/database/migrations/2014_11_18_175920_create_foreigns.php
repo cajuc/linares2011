@@ -13,7 +13,7 @@ class CreateForeigns extends Migration {
 	public function up()
 	{
 		Schema::table('equipos', function($table){
-			$table->foreign('categoria_id')->references('id')->on('categorias');
+			$table->foreign('categoria_id')->references('id')->on('categorias')->onDelete('restrict')->onUpdate('cascade');
 			$table->foreign('liga_id')->references('id')->on('ligas');
 		});
 
@@ -22,7 +22,7 @@ class CreateForeigns extends Migration {
 		});
 
 		Schema::table('integrantes', function($table){
-			$table->foreign('equipo_id')->references('id')->on('equipos');
+			$table->foreign('equipo_id')->references('id')->on('equipos')->onDelete('set null')->onUpdate('cascade');
 		});
 
 		Schema::table('fichas', function($table){

@@ -9,6 +9,7 @@
 	</div>
 
 	<div class="clearfix"></div>
+
 	<p class="help-block">Se recomienda que el tamaño de imagen sea (800x400)</p>
 	
 	<ul class="list-group col-md-4 text-center" id="message-upload" hidden></ul>
@@ -51,15 +52,6 @@
 							</td>
 						</tr>
 					@endforeach
-					
-
-					<!-- <tr class="success">
-						<td>{{ Form::number('orden', '', array('class' => 'form-control input-sm', 'max' => 5, 'min' => 1)) }}</td>
-						<td>{{ Form::text('nombre_imagen', '', array('class' => 'form-control input-sm')) }}</td>
-						<td class="text-center">
-							<button type="submit" class="btn btn-link btn-unstyle"><span class="fa fa-plus-circle fa-2x"></span></button>
-						</td>
-					</tr> -->
 				</table>
 			{{ Form::close() }}
 		@endif

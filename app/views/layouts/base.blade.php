@@ -28,7 +28,7 @@
 						<div class="col-xs-3 col-sm-6 col-md-5">
 							<a href="/">{{ HTML::image('assets/images/escudo-linares2011.png', 'escudo linares 2011', ['class' => 'logo-img img-responsive']) }}
 							</a>
-							<span class="logo-text hidden-xs">Linares C.F</span>
+							<span class="logo-text hidden-xs">{{ $club->nombre or 'Linares' }}</span>
 						</div>
 
 						<div class="col-xs-12 col-sm-3 col-md-4 logout">

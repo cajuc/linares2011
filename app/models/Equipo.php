@@ -3,6 +3,8 @@
 class Equipo extends Eloquent {
 	protected $table = "equipos";
 
+	protected $fillable = array("nombre", "categoria_id", "liga_id", "slug", "club_id");
+
 	public function estadistica(){
 		return $this->hasOne("Estadistica");
 	}

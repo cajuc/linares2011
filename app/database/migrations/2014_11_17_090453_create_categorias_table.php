@@ -14,7 +14,7 @@ class CreateCategoriasTable extends Migration {
 	{
 		Schema::create('categorias', function($table){
 			$table->increments('id');
-			$table->enum('nombre', array('prebenjamín', 'benjamín', 'alevín', 'infantil', 'cadete', 'juvenil', 'senior'));
+			$table->enum('nombre', array('prebenjamín', 'benjamín', 'alevín', 'infantil', 'cadete', 'juvenil', 'senior'))->unique();
 			$table->timestamps();
 		});
 	}

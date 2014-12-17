@@ -99,24 +99,35 @@ class ObtenerRecursos extends BaseController{
 		return $slider_images;
 	}
 
-	public static function subirSliderImage($image){
-		$exist = Slider::where('nombre_imagen', '=', $image->getClientOriginalName())->get();
+	public static function subirImage($image, $trophy = null){
+		$exist2 = false;
+		$comprobar = true;
 
-		// var_dump(empty($exist->toArray()));die();
-
-		if (!empty($exist->toArray())) {
-			return ['success' => false, 'image' => $image->getClientOriginalName()];
+		if ($trophy) {
+			$exist2 = file_exists('assets/images/trophys/'.$image->getClientOriginalName());
+			$comprobar = false;
 		}else{
-			Slider::create([
-				'nombre_imagen' => $image->getClientOriginalName(),
-				'usar' => 0,
-				'titulo' => ''
-			]);
+			$exist = Slider::where('nombre_imagen', '=', $image->getClientOriginalName())->get();
+		}
+
+		if ($exist2) {
+			return ['success' => false, 'image' => $image->getClientOriginalName()];
+		}elseif($comprobar){
+			if (!empty($exist->toArray())) {
+				return ['success' => false, 'image' => $image->getClientOriginalName()];
+			}else{
+				Slider::create([
+					'nombre_imagen' => $image->getClientOriginalName(),
+					'usar' => 0,
+					'titulo' => ''
+				]);
+			}
 		}
 
 		return ['success' => true, 'image' => $image->getClientOriginalName()];
 	}
 
+	// Función para obtener las images de slider publicadas
 	public static function obtenerSliderImagesPublished($id = null){
 		$exist = false;
 
@@ -133,5 +144,43 @@ class ObtenerRecursos extends BaseController{
 		$slider_images = Slider::wherePublicar(1)->orderBy('orden')->orderBy('updated_at', 'Desc')->get();
 
 		return array('slider_images' => $slider_images, 'exist' => $exist);
+	}
+
+	// Función para obtener los equipos que pertenecen al club
+	public static function obtenerEquiposClub(){
+		$club_id = Club::first();
+		$teams = Equipo::whereClub_id($club_id->id)->get();
+
+		return $teams;
+	}
+
+	// Función para obtener todas las ligas
+	public static function obtenerLigas(){
+		$ligas = Liga::all();
+
+		return $ligas;
+	}
+
+	// Función para comprobar que solo haya un equipo de la misma categoría en la misma liga
+	public static function validarEquipoLiga($liga, $club, $id){
+		if ($liga != 'null') {
+			$equipo = Equipo::whereClub_id($club)->whereLiga_id($liga)->first();
+			
+			if ($equipo) {
+				if ($equipo->id != $id || !$id) {
+					return ["success" => false];
+				}
+			}
+		}
+
+
+		return ["success" => true];
+	}
+
+	// Función para obtener todos los trofeos
+	public static function obtenerTrofeos(){
+		$trophys = Trofeo::all();
+
+		return $trophys;
 	}
 }

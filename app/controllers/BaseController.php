@@ -9,10 +9,13 @@ class BaseController extends Controller {
 	 */
 	protected function setupLayout()
 	{
+		// Compartir nombre del club en todas las vistas
+		$club = ObtenerRecursos::obtenerClub();
+		View::share('club', $club);
+
 		if ( ! is_null($this->layout))
 		{
 			$this->layout = View::make($this->layout);
 		}
 	}
-
 }
