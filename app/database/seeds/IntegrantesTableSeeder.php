@@ -11,7 +11,7 @@ class IntegrantesTableSeeder extends Seeder{
 				'equipo_id' => 1,
 				'nombre' => $faker->firstNameMale,
 				'apellidos' => $faker->lastName,
-				'nombre_imagen' => 'player.jpeg',
+				'nombre_imagen' => 'portero.png',
 				'es_tecnico' => 0
 			]);
 
@@ -24,7 +24,7 @@ class IntegrantesTableSeeder extends Seeder{
 				'puesto' => '1',
 				'fecha_nacimiento' => $faker->date(),
 				'peso' => 70,
-				'altura' => 1.80,
+				'altura' => 1.85,
 				'detalles' => $faker->text(200)
 			]);
 		}
@@ -35,7 +35,7 @@ class IntegrantesTableSeeder extends Seeder{
 				'equipo_id' => 1,
 				'nombre' => $faker->firstNameMale,
 				'apellidos' => $faker->lastName,
-				'nombre_imagen' => 'player.jpeg',
+				'nombre_imagen' => 'defensa.jpg',
 				'es_tecnico' => 0
 			]);
 
@@ -47,7 +47,7 @@ class IntegrantesTableSeeder extends Seeder{
 				'integrante_id' => $integrante->id,
 				'puesto' => '2',
 				'fecha_nacimiento' => $faker->date(),
-				'peso' => 70,
+				'peso' => 78,
 				'altura' => 1.80,
 				'detalles' => $faker->text(200)
 			]);
@@ -59,7 +59,7 @@ class IntegrantesTableSeeder extends Seeder{
 				'equipo_id' => 1,
 				'nombre' => $faker->firstNameMale,
 				'apellidos' => $faker->lastName,
-				'nombre_imagen' => 'player.jpeg',
+				'nombre_imagen' => 'centro.jpg',
 				'es_tecnico' => 0
 			]);
 
@@ -71,8 +71,8 @@ class IntegrantesTableSeeder extends Seeder{
 				'integrante_id' => $integrante->id,
 				'puesto' => '3',
 				'fecha_nacimiento' => $faker->date(),
-				'peso' => 70,
-				'altura' => 1.80,
+				'peso' => 72,
+				'altura' => 1.75,
 				'detalles' => $faker->text(200)
 			]);
 		}
@@ -83,7 +83,7 @@ class IntegrantesTableSeeder extends Seeder{
 				'equipo_id' => 1,
 				'nombre' => $faker->firstNameMale,
 				'apellidos' => $faker->lastName,
-				'nombre_imagen' => 'player.jpeg',
+				'nombre_imagen' => 'delantero.jpeg',
 				'es_tecnico' => 0
 			]);
 
@@ -95,8 +95,8 @@ class IntegrantesTableSeeder extends Seeder{
 				'integrante_id' => $integrante->id,
 				'puesto' => '4',
 				'fecha_nacimiento' => $faker->date(),
-				'peso' => 70,
-				'altura' => 1.80,
+				'peso' => 73,
+				'altura' => 1.82,
 				'detalles' => $faker->text(200)
 			]);
 		}
@@ -104,9 +104,9 @@ class IntegrantesTableSeeder extends Seeder{
 		// Seed técnico 'entrenador'
 		Integrante::create([
 			'equipo_id' => 1,
-			'nombre' => $faker->firstNameMale,
-			'apellidos' => $faker->lastName,
-			'nombre_imagen' => 'coaching-staff.jpg',
+			'nombre' => "Luis",
+			'apellidos' => "Aragonés",
+			'nombre_imagen' => 'entrenador.jpg',
 			'es_tecnico' => 1
 		]);
 
@@ -122,9 +122,9 @@ class IntegrantesTableSeeder extends Seeder{
 		// Seed técnico 'delegado'
 		Integrante::create([
 			'equipo_id' => 1,
-			'nombre' => $faker->firstNameMale,
-			'apellidos' => $faker->lastName,
-			'nombre_imagen' => 'coaching-staff.jpg',
+			'nombre' => "Fernando",
+			'apellidos' => "Hirro",
+			'nombre_imagen' => 'delegado.jpg',
 			'es_tecnico' => 1
 		]);
 

@@ -24,15 +24,4 @@ class AdminController extends BaseController{
 
 		return Redirect::back()->with('invalid', 'El usuario y/o contraseña son erroneos');
 	}
-
-	// Función para crear un usuario
-	// public function getCrear(){
-	// 	User::create(array(
-	// 		'username' => 'carlos',
-	// 		'password' => Hash::make('carlos'),
-	// 		'admin' => 1
-	// 	));
-
-	// 	return 'User created';
-	// }
 }

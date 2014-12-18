@@ -46,7 +46,7 @@ class SettingsController extends BaseController{
 		foreach ($files as $key => $file) {
 			$validator = Validator::make(
 				['image' => $file], 
-				array('image' => 'required|image|mimes:jpeg,png'),
+				array('image' => 'required|image|mimes:jpeg,png,gif'),
 				$messages
 			);
 

@@ -30,13 +30,16 @@ class ObtenerRecursos extends BaseController{
 						->where('categorias.nombre', '=', $categoria)
 						->select('liga_id')->get();
 
-		$liga = DB::table('ligas')->join('equipos', 'ligas.id', '=', 'equipos.liga_id')
+		if ($liga){
+			$liga = DB::table('ligas')->join('equipos', 'ligas.id', '=', 'equipos.liga_id')
 						->join('estadisticas', 'equipos.id', '=', 'estadisticas.equipo_id')
 						->leftJoin('clubs', 'equipos.club_id', '=', 'clubs.id')
 						->where('ligas.id', '=', $liga[0]->liga_id)
 						->orderBy('estadisticas.puntos', 'Desc')
 						->select('estadisticas.*', 'equipos.*', 'ligas.nombre as liga', 'clubs.nombre as club')->get();
-						// var_dump($equipos);die();
+		}else{
+			$liga = null;
+		}
 
 		return $liga;
 	}
